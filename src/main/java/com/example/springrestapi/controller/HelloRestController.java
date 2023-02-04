@@ -25,4 +25,9 @@ public class HelloRestController {
     public String sayHello(@RequestBody HelloModel helloModel) {
         return "Hello " + helloModel.getFirstName() + " " + helloModel.getLastName() + "!";
     }
+
+    @PutMapping("/put/{firstName}") //PUT http://localhost:8080/put/Bharat?lastName=Gharde
+    public String sayHello(@PathVariable String firstName, @RequestParam(value = "lastName") String lastName) {
+        return "Hello " + firstName + " " + lastName + "!";
+    }
 }
